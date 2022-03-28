@@ -33,7 +33,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     if @book.update(book_params)
       flash[:notice] = "データを１件更新しました"
-      redirect_to books_path
+      redirect_to book_path(@book)
     else
       flash.now[:alert] = "更新に失敗しました"
       render :edit
